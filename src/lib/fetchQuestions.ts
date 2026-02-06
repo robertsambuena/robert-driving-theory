@@ -39,7 +39,7 @@ export type QuestionsType = z.infer<typeof QuestionsSchema>
 export type QuestionType = z.infer<typeof QuestionSchema>
 
 export function fetchQuestions(): Promise<QuestionsType> {
-  return fetch('../public/questions/driving_theory_questions.json')
+  return fetch('/questions/driving_theory_questions.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to load questions')
@@ -52,7 +52,7 @@ export function fetchQuestions(): Promise<QuestionsType> {
 };
 
 export function fetch30RandomUnansweredQuestions(): Promise<QuestionsType> {
-  return fetch('../public/questions/driving_theory_questions.json')
+  return fetch('/questions/driving_theory_questions.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to load questions')
@@ -73,7 +73,7 @@ export function fetch30RandomUnansweredQuestions(): Promise<QuestionsType> {
 
 export function fetchQuestionById(question_id: string): Promise<QuestionType> {
   console.log('Fetching question with ID:', question_id) // Debug log to check the question ID being fetched
-  return fetch('../public/questions/driving_theory_questions.json')
+  return fetch('/questions/driving_theory_questions.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to load questions')
@@ -90,7 +90,7 @@ export function fetchQuestionById(question_id: string): Promise<QuestionType> {
 }
 
 export function fetchAnsweredQuestionsByNumberOfCorrectAnswers(score: number): Promise<QuestionType[]> {
-  return fetch('../public/questions/driving_theory_questions.json')
+  return fetch('/questions/driving_theory_questions.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to load questions')
