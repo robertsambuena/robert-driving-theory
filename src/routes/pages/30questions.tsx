@@ -4,7 +4,7 @@ import { QuestionView } from '../../components/question/QuestionView'
 import { Button } from '@/components/base/buttons/button'
 import { useState } from 'react'
 import { FeaturedIcon } from '@/components/foundations/featured-icon/featured-icon'
-import { AlignLeft, ArrowLeft, LeftIndent01, UserLeft01 } from '@untitledui/icons'
+import { ArrowLeft } from '@untitledui/icons'
 
 export const Route = createFileRoute('/pages/30questions')({
   component: RouteComponent,
