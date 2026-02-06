@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Pages30questionsRouteImport } from './routes/pages/30questions'
-import { Route as ApiResumeChatRouteImport } from './routes/api.resume-chat'
 import { Route as PagesQuestionQuestionIdRouteImport } from './routes/pages/question.$questionId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,11 +23,6 @@ const Pages30questionsRoute = Pages30questionsRouteImport.update({
   path: '/pages/30questions',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiResumeChatRoute = ApiResumeChatRouteImport.update({
-  id: '/api/resume-chat',
-  path: '/api/resume-chat',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PagesQuestionQuestionIdRoute = PagesQuestionQuestionIdRouteImport.update({
   id: '/pages/question/$questionId',
   path: '/pages/question/$questionId',
@@ -37,47 +31,30 @@ const PagesQuestionQuestionIdRoute = PagesQuestionQuestionIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/api/resume-chat': typeof ApiResumeChatRoute
   '/pages/30questions': typeof Pages30questionsRoute
   '/pages/question/$questionId': typeof PagesQuestionQuestionIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/api/resume-chat': typeof ApiResumeChatRoute
   '/pages/30questions': typeof Pages30questionsRoute
   '/pages/question/$questionId': typeof PagesQuestionQuestionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/api/resume-chat': typeof ApiResumeChatRoute
   '/pages/30questions': typeof Pages30questionsRoute
   '/pages/question/$questionId': typeof PagesQuestionQuestionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/api/resume-chat'
-    | '/pages/30questions'
-    | '/pages/question/$questionId'
+  fullPaths: '/' | '/pages/30questions' | '/pages/question/$questionId'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/api/resume-chat'
-    | '/pages/30questions'
-    | '/pages/question/$questionId'
-  id:
-    | '__root__'
-    | '/'
-    | '/api/resume-chat'
-    | '/pages/30questions'
-    | '/pages/question/$questionId'
+  to: '/' | '/pages/30questions' | '/pages/question/$questionId'
+  id: '__root__' | '/' | '/pages/30questions' | '/pages/question/$questionId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ApiResumeChatRoute: typeof ApiResumeChatRoute
   Pages30questionsRoute: typeof Pages30questionsRoute
   PagesQuestionQuestionIdRoute: typeof PagesQuestionQuestionIdRoute
 }
@@ -98,13 +75,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Pages30questionsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/resume-chat': {
-      id: '/api/resume-chat'
-      path: '/api/resume-chat'
-      fullPath: '/api/resume-chat'
-      preLoaderRoute: typeof ApiResumeChatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/pages/question/$questionId': {
       id: '/pages/question/$questionId'
       path: '/pages/question/$questionId'
@@ -117,7 +87,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ApiResumeChatRoute: ApiResumeChatRoute,
   Pages30questionsRoute: Pages30questionsRoute,
   PagesQuestionQuestionIdRoute: PagesQuestionQuestionIdRoute,
 }
